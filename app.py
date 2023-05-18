@@ -9,7 +9,7 @@ preprocess = Preprocess()
 
 app = Flask(__name__)
 
-model = joblib.load('model/sentiment_model.pkl')
+model = joblib.load('model/sentiment_model2.pkl')
 
 
 @app.route("/")
@@ -33,7 +33,7 @@ def predict():
 
     if prediction == 1:
         klasifikasi = 'Positif'
-    elif prediction == -1:
+    elif prediction == 0:
         klasifikasi = 'Negatif'
 
     return render_template("index.html", case_folding=case_folding, cleansing=cleansing, normalization=normalization, filtering=filtering, stemming=stemming, tokenize=tokenize,  prediction_text=klasifikasi)
